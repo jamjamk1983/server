@@ -174,6 +174,10 @@ class CloudFederationProviderFiles implements ICloudFederationProvider {
 			throw new ProviderCouldNotAddShareException('Server does not support federated cloud sharing', '', Http::STATUS_SERVICE_UNAVAILABLE);
 		}
 
+		if ($this->federatedShareProvider->allowedIncomingFederation($share->getToken(), $share->getPassword())) {
+			throw new ProviderCouldNotAddShareException('Server only support internal federated cloud sharing', '', Http::STATUS_SERVICE_UNAVAILABLE);
+		}
+
 		$protocol = $share->getProtocol();
 		if ($protocol['name'] !== 'webdav') {
 			throw new ProviderCouldNotAddShareException('Unsupported protocol for data exchange.', '', Http::STATUS_NOT_IMPLEMENTED);
