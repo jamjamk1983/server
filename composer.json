@@ -18,6 +18,6 @@
         "jakub-onderka/php-console-highlighter": "^0.3.2"
     },
   "scripts": {
-    "lint": "find . -name \\*.php -not -path './lib/composer/vendor/*' -exec php -l \"{}\" \\;"
+    "lint": "find . -name \\*.php -not -path './lib/composer/*' -exec php -l \"{}\" \\;"
   }
 }

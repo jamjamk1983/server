@@ -18,19 +18,3 @@ jobs:
         coverage: none
     - name: Lint
       run: composer run lint
-
-  node-linters:
-    runs-on: ubuntu-latest
-    name: ESLint
-    steps:
-    - uses: actions/checkout@master
-    - name: Set up Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - name: npm install
-      run: npm ci
-    - name: eslint
-      run: npm run lint
-    env:
-      CI: true
